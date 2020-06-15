@@ -1,0 +1,5 @@
+brew python
+brew cmake
+brew wget
+brew boost
+brew mercurial

@@ -1,0 +1,2 @@
+FIRST_SENTENCE = "Handle nur nach derjenigen Maxime, durch die du zugleich wollen kannst, dass sie ein allgemeines Gesetz werde."
+SECOND_SENTENCE = "Handle so, als ob die Maxime deiner Handlung durch deinen Willen zum allgemeinen Naturgesetze werden sollte."
