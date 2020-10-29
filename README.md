@@ -1,6 +1,6 @@
+<img src="https://github.com/stoffy/RUAK/blob/master/The_School_of_Athens.jpg" alt="The School of Athens">
+
 # RUAK - Are you a Hegel?
-![](https://en.wikipedia.org/wiki/Philosophy#/media/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg)
-> ## Science is what you know, philosophy is what you don't know.
 ### [Bertrand Russell](https://en.wikipedia.org/wiki/Bertrand_Russell)
 
 Philosophy is a fundamental human thought movement. Everyone is a philosopher. The only question is what kind of philosopher you are. This project tries to answer that question.
