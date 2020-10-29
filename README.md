@@ -25,3 +25,9 @@ The project is based on muliple layers for different tasks. Most of the code can
 13. Tensorboard analysis
 
 The [ruakspider](https://github.com/stoffy/RUAK/tree/master/ruakspider) folder contain all stuff needed for crawling over certain websites to get text als training data for the classification model and text for the [training of the Word2Vec embedding model](https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb).
+
+### Word2Vec & FastText
+The [embeddings_trainer](https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb) notebook contains a collection of functions to train Word2Vec, Doc2Vec and FastText models. After some test the outcome was, that the Word2Vec embedding model works best for this case. 
+
+### Further information
+The jupyter notebooks are hooked up the Google Drive to load and store different types of data. If you are not using Google Drive you need the change the paths in the notebooks.
