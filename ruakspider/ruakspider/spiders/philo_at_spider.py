@@ -11,7 +11,7 @@ FILE_STORE = os.path.abspath(
     __file__ + f"/../../../loaded")
 
 FILE_LIST = os.path.abspath(
-    __file__ + f"/../../url_phil_at_list.txt")
+    __file__ + f"/../../lists/url_phil_at_list.txt")
 
 
 def list_from_file():

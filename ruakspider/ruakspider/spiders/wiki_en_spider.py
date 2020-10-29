@@ -2,7 +2,7 @@
 
 from ruakspider.cleaner import clean_up
 from ruakspider.cleaner import title_clean_up
-from sourcespider.cleaner import wiki_clean_up
+from ruakspider.cleaner import wiki_clean_up
 from bs4 import BeautifulSoup
 import scrapy
 import os

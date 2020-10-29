@@ -13,7 +13,7 @@ BOT_NAME = 'ruakspider'
 FEED_EXPORT_ENCODING = 'utf-8'
 SPIDER_MODULES = ['ruakspider.spiders']
 NEWSPIDER_MODULE = 'ruakspider.spiders'
-DEPTH_LIMIT = 6
+DEPTH_LIMIT = 3
 SCHEDULER_ORDER = 'BFO'
 
 

@@ -2,3 +2,4 @@
 /input
 /.idea
 *.pyc
+/notebooks/.ipynb_checkpoints

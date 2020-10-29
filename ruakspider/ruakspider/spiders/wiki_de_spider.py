@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ruakpider.cleaner import wiki_title_clean_up
+from ruakspider.cleaner import wiki_title_clean_up
 from ruakspider.cleaner import wiki_clean_up
 from bs4 import BeautifulSoup
 import scrapy
@@ -15,7 +15,7 @@ BANNED = [
 ]
 
 PATH = os.path.abspath(
-    __file__ + f"/../../../loaded")
+    __file__ + f"/../../../loaded/Politische Philosophie")
 
 
 class WikiDESpider(CrawlSpider):
@@ -28,11 +28,9 @@ class WikiDESpider(CrawlSpider):
     )
     rules = [Rule(link_extractor, callback='parse_item', follow=False)]
 
-    outfile = open(f'{PATH}/_wiki_TEST.txt', 'a', encoding='UTF-8')
-
     def parse_item(self, response):
-
         title = response.xpath('// title/text()').get()
+        outfile = open(f'{PATH}/{title}.txt', 'a', encoding='UTF-8')
         if self.exclude(title):
             print(f'IGNORED: {title}.')
             return
@@ -59,7 +57,7 @@ class WikiDESpider(CrawlSpider):
 
         text = wiki_clean_up(text)
 
-        self.outfile.write(f'{text}\n')
+        outfile.write(f'{text}\n')
 
     def exclude(self, title):
         if [ele for ele in BANNED if(ele in title)]:
@@ -68,5 +66,38 @@ class WikiDESpider(CrawlSpider):
             False
 
     start_urls = [
-        'https://de.wikipedia.org/wiki/Kategorie:Philosophie'
+        # 'https://de.wikipedia.org/wiki/Kategorie:Metaphysik',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Nat % C3 % BCrliche_Theologie',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Okkasionalismus',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Ontologie',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Dualismus',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Traditionalismus_(Philosophie)'
+
+        # 'https://de.wikipedia.org/wiki/Kategorie:Ethik_(Philosophie)',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Moralphilosoph',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Bioethiker',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Christlicher_Sozialethiker',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Medizinethiker',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Umweltethiker',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Utilitarist',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Vertreter_der_Diskurstheorie',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Wirtschaftsethiker',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Ethische_Theorie',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Ethisches_Prinzip',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Metaethik'
+
+        # 'https://de.wikipedia.org/wiki/Kategorie:Erkenntnistheorie',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Erkenntnistheoretiker',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Kantianismus',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Kantianer',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Neukantianer',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Wahrheit_(Philosophie)',
+        # 'https://de.wikipedia.org/wiki/Kategorie:Wissen_(Philosophie)',
+        # 'https://de.wikipedia.org/w/index.php?title=Kategorie:Erkenntnistheorie&pagefrom=Methodischer+Zweifel#mw-pages'
+
+        'https://de.wikipedia.org/wiki/Kategorie:Politische_Philosophie',
+        'https://de.wikipedia.org/wiki/Kategorie:Politischer_Philosoph',
+        'https://de.wikipedia.org/wiki/Kategorie:Staatsphilosophie',
+        'https://de.wikipedia.org/wiki/Kategorie:Staatstheorie',
+        'https://de.wikipedia.org/wiki/Kategorie:Werk_der_Politischen_Philosophie'
     ]
