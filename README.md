@@ -1,6 +1,9 @@
 <img src="https://github.com/stoffy/RUAK/blob/master/The_School_of_Athens.jpg" alt="The School of Athens">
 
 # RUAK - Are you a Hegel?
+
+> ### The greatest challenge to any thinker is stating the problem in a way that will allow a solution.
+
 ### [Bertrand Russell](https://en.wikipedia.org/wiki/Bertrand_Russell)
 
 Philosophy is a fundamental human thought movement. Everyone is a philosopher. The only question is what kind of philosopher you are. This project tries to answer that question.
