@@ -1,7 +1,7 @@
 <h1>RUAK - Are you a Hegel?</h1>
 
 <img src="https://github.com/stoffy/RUAK/blob/master/images/The_School_of_Athens.jpg" alt="The School of Athens"><br>
-<cite>The greatest challenge to any thinker is stating the problem in a way that will allow a solution.</cite><br>
+<i>The greatest challenge to any thinker is stating the problem in a way that will allow a solution.</i><br>
 <a href="https://en.wikipedia.org/wiki/Bertrand_Russell">Bertrand Russell</a>
 
 <h2>About this project</h2>
@@ -79,31 +79,64 @@ Since the process of creating the data frame can take quite a while. A data fram
 In this part it is all about visualizing the data so it can be understood easier. First the data is prepared for showing it using the Matplotlib library.
 <br>
 
-<h5>Data distribution</h5> 
+<h5><b>Data distribution</b></h5> 
 Shows the shares of data for each author:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/data_distribution.png" alt="Data distribution">
 
-<h5>Comparing authors</h5> 
+<h5><b>Comparing authors</b></h5> 
 Shows the differences between the authors for 4 metrics: <code>Mumber of sentences</code>, <code>Median sentence length</code>, <code>Unique vocabulary count</code>, <code>Median stop word ratio</code>.<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/comparing_authors.png" alt="Comparing authors">
 
-<h5>Word classes by authos</h5>
+<h5><b>Word classes by authos</b></h5>
 Presents the ratio of authors total used words to word classes:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/word_classes_by_author.png" alt="Word classes by authors">
 
-<h5>Common words</h5>
+<h5><b>Common words</b></h5>
 Gives an overview of the number of sentences containing one if the most 20 common words:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/common_words.png" alt="Common words">
 
 
 <h4>Prepare and split</h4>
-<h4>Hyperparameter tuning</h4>
-<h4>Model preparation and training</h4>
-<h4>Save or load model</h4>
-<h4>Evaluation</h4>
-<h4>TensorBoard</h4>
+This step prepared the data for the Tensorflow model. To process the text data it needs to be tokenized and encoded. Keras preprocessing methods are used for this. <code>texts_to_sequences</code> encodes the text to a sequence of integers.<br>Each sequence is padded to the longst available sequence using <code>pad_sequences</code>. Afterwards scikit-learn's <code>train_test_split</code> method is used to split the data into <code>X_train</code>, <code>X_valid</code>, <code>y_train</code>, and <code>y_valid</code>.
 
- 
+<h4>Hyperparameter tuning</h4>
+Instead of manually seaching for the best hyperparameter used by the model. In this project <a href="https://github.com/keras-team/keras-tuner">Keras Tuner</a> is used.<br>At the beginning of the step the Word2Vec model is loaded which can be created using the <a href="https://github.com/stoffy/RUAK-text-classifier/blob/master/notebooks/embeddings_trainer.ipynb"><code>embeddings_trainer.ipynb</code></a>.<br> The <code>hypermodel</code> function contains the definition of the model and the ranges for tuning the hyperparameters. The following parameters can be tuned:
+<ul>
+<li><code>hp_dense_count</code> - Number of dense layers at the end of the model</li>
+<li><code>hp_dense_units</code> - Number of units in dense layers</li>
+<li><code>hp_dense_activation</code> - Activation function for dense layers</li>
+<li><code>hp_embedding_trainable</code> - Boolean if the pre-trained embedded layer can be trained during fitting</li>
+<li><code>hp_with_batch_normalization</code> - Boolean if batch normalization layers should be used.</li>
+<li><code>hp_lstm_units</code> - Number of units in LSTM layers</li>
+<li><code>hp_dropout</code> - Dropout rate</li>
+<li><code>hp_learning_rate</code> - Learning rate parameter for the optimizer</li>
+<li><code>hp_adam_epsilon</code> - Epsilon paramete for Adam</li>
+</ul> 
+Keras Hyperband uses the model to create a tuner - parameters:
+<ul>
+<li><code>executions_per_trial</code> - Number of models that should be built and fit for each trial for robustness purposes</li>
+<li><code>max_epochs</code> - The maximal number of epochs. This number should be slightly bigger than the epochs for the fitting process</li>
+<li><code>hyperband_iterations</code> - The number of times to iterate over the full Hyperband algorithm</li>
+</ul>
+The created tuner is then used to search for the best paramters which are returned by <code>get_best_hyperparameters</code>. A collection of the best models are returned by <code>get_best_models</code>.
+
+<h4>Model preparation and training</h4>
+Using the fit method of the selected model - here it gets trained using the train and validation data. Three different callbacks are used: 
+<ul>
+<li><code>Tensorboard</code> - For collecting the data for presentation in TensorBoard</li>
+<li><code>ModelCheckpoint</code> - Stores the weights after each epoch</li>
+<li><code>EarlyStopping</code> - Stops the training if no progess in learning</li>
+</ul>
+
+<h4>Save or load model</h4>
+Here the model can be stored for later usage or loaded if it should be used in the next steps.
+
+<h4>Evaluation</h4>
+Draw charts to show compare training and validation results and try custom sentences to be classified by the trained model.
+
+<h4>TensorBoard</h4>
+Open Tensorboad to get an detailed overview of the training process.
+<br>
 
 <h3><u>embeddings_trainer.ipynb</u></h3>
 The <a href="https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb">embeddings_trainer</a> notebook contains a collection of functions to train Word2Vec, Doc2Vec and FastText models. After some test the outcome was, that the Word2Vec embedding model works best for this case.
