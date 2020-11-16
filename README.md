@@ -6,9 +6,9 @@
 
 <h2>About this project</h2>
 Philosophy is a fundamental human thought movement. Everyone is a philosopher. The only question is what kind of philosopher you are. This project tries to answer that question.<br><br>
-Using natural language processing (NLP), texts of different authors are used for categorization.
+Using natural language processing (NLP), texts of different authors are used for categorisation.
 With the help of these texts any sentence can be categorically determined.
-To understand how written language works and what the differents are between authors it helps to analyse the context of the sentences. Though visualization it is simpler to see structural varieties such as average sentence length, word class ratio and the use of <a href="https://en.wikipedia.org/wiki/Stop_word">stop words</a>.
+To understand how written language works and what the differences are between authors it helps to analyse the context of the sentences. Though visualisation it is simpler to see structural varieties such as average sentence length, word class ratio and the use of <a href="https://en.wikipedia.org/wiki/Stop_word">stop words</a>.
 
 <h2>About the notebooks</h2>
 <h3><u>text_classifier.ipynb</u></h3>
@@ -84,10 +84,10 @@ Shows the shares of data for each author:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/data_distribution.png" alt="Data distribution">
 
 <h5><b>Comparing authors</b></h5> 
-Shows the differences between the authors for 4 metrics: <code>Mumber of sentences</code>, <code>Median sentence length</code>, <code>Unique vocabulary count</code>, <code>Median stop word ratio</code>.<br>
+Shows the differences between the authors for 4 metrics: <code>Number of sentences</code>, <code>Median sentence length</code>, <code>Unique vocabulary count</code>, <code>Median stop word ratio</code>.<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/comparing_authors.png" alt="Comparing authors">
 
-<h5><b>Word classes by authos</b></h5>
+<h5><b>Word classes by authors</b></h5>
 Presents the ratio of authors total used words to word classes:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/word_classes_by_author.png" alt="Word classes by authors">
 
@@ -97,10 +97,10 @@ Gives an overview of the number of sentences containing one if the most 20 commo
 
 
 <h4>Prepare and split</h4>
-This step prepared the data for the Tensorflow model. To process the text data it needs to be tokenized and encoded. Keras preprocessing methods are used for this. <code>texts_to_sequences</code> encodes the text to a sequence of integers.<br>Each sequence is padded to the longst available sequence using <code>pad_sequences</code>. Afterwards scikit-learn's <code>train_test_split</code> method is used to split the data into <code>X_train</code>, <code>X_valid</code>, <code>y_train</code>, and <code>y_valid</code>.
+This step prepared the data for the Tensorflow model. To process the text data it needs to be tokenized and encoded. Keras preprocessing methods are used for this. <code>texts_to_sequences</code> encodes the text to a sequence of integers.<br>Each sequence is padded to the longest available sequence using <code>pad_sequences</code>. Afterwards scikit-learn's <code>train_test_split</code> method is used to split the data into <code>X_train</code>, <code>X_valid</code>, <code>y_train</code>, and <code>y_valid</code>.
 
 <h4>Hyperparameter tuning</h4>
-Instead of manually seaching for the best hyperparameter used by the model. In this project <a href="https://github.com/keras-team/keras-tuner">Keras Tuner</a> is used.<br>At the beginning of the step the Word2Vec model is loaded which can be created using the <a href="https://github.com/stoffy/RUAK-text-classifier/blob/master/notebooks/embeddings_trainer.ipynb"><code>embeddings_trainer.ipynb</code></a>.<br> The <code>hypermodel</code> function contains the definition of the model and the ranges for tuning the hyperparameters. The following parameters can be tuned:
+Instead of manually searching for the best hyperparameter used by the model. In this project <a href="https://github.com/keras-team/keras-tuner">Keras Tuner</a> is used.<br>At the beginning of the step the Word2Vec model is loaded which can be created using the <a href="https://github.com/stoffy/RUAK-text-classifier/blob/master/notebooks/embeddings_trainer.ipynb"><code>embeddings_trainer.ipynb</code></a>.<br> The <code>hypermodel</code> function contains the definition of the model and the ranges for tuning the hyperparameters. The following parameters can be tuned:
 <ul>
 <li><code>hp_dense_count</code> - Number of dense layers at the end of the model</li>
 <li><code>hp_dense_units</code> - Number of units in dense layers</li>
@@ -110,7 +110,7 @@ Instead of manually seaching for the best hyperparameter used by the model. In t
 <li><code>hp_lstm_units</code> - Number of units in LSTM layers</li>
 <li><code>hp_dropout</code> - Dropout rate</li>
 <li><code>hp_learning_rate</code> - Learning rate parameter for the optimizer</li>
-<li><code>hp_adam_epsilon</code> - Epsilon paramete for Adam</li>
+<li><code>hp_adam_epsilon</code> - Epsilon parameter for Adam</li>
 </ul> 
 Keras Hyperband uses the model to create a tuner - parameters:
 <ul>
@@ -118,14 +118,14 @@ Keras Hyperband uses the model to create a tuner - parameters:
 <li><code>max_epochs</code> - The maximal number of epochs. This number should be slightly bigger than the epochs for the fitting process</li>
 <li><code>hyperband_iterations</code> - The number of times to iterate over the full Hyperband algorithm</li>
 </ul>
-The created tuner is then used to search for the best paramters which are returned by <code>get_best_hyperparameters</code>. A collection of the best models are returned by <code>get_best_models</code>.
+The created tuner is then used to search for the best parameters which are returned by <code>get_best_hyperparameters</code>. A collection of the best models are returned by <code>get_best_models</code>.
 
 <h4>Model preparation and training</h4>
 Using the fit method of the selected model - here it gets trained using the train and validation data. Three different callbacks are used: 
 <ul>
 <li><code>Tensorboard</code> - For collecting the data for presentation in TensorBoard</li>
 <li><code>ModelCheckpoint</code> - Stores the weights after each epoch</li>
-<li><code>EarlyStopping</code> - Stops the training if no progess in learning</li>
+<li><code>EarlyStopping</code> - Stops the training if no progress in learning</li>
 </ul>
 
 <h4>Save or load model</h4>
