@@ -1,7 +1,7 @@
 <h1>RUAK - Are you a Hegel?</h1>
 
-<img src="https://github.com/stoffy/RUAK/blob/master/The_School_of_Athens.jpg" alt="The School of Athens">
-> ### The greatest challenge to any thinker is stating the problem in a way that will allow a solution.
+<img src="https://github.com/stoffy/RUAK/blob/master/images/The_School_of_Athens.jpg" alt="The School of Athens"><br>
+<cite>The greatest challenge to any thinker is stating the problem in a way that will allow a solution.</cite><br>
 <a href="https://en.wikipedia.org/wiki/Bertrand_Russell">Bertrand Russell</a>
 
 <h2>About this project</h2>
@@ -80,7 +80,7 @@ In this part it is all about visualizing the data so it can be understood easier
 <br>
 
 <h5>Data distribution</h5> 
-Shows the shares of data for each author.<br>
+Shows the shares of data for each author:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/data_distribution.png" alt="Data distribution">
 
 <h5>Comparing authors</h5> 
@@ -88,11 +88,11 @@ Shows the differences between the authors for 4 metrics: <code>Mumber of sentenc
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/comparing_authors.png" alt="Comparing authors">
 
 <h5>Word classes by authos</h5>
-Presents the ratio of authors total used words to word classes.<br>
+Presents the ratio of authors total used words to word classes:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/word_classes_by_author.png" alt="Word classes by authors">
 
 <h5>Common words</h5>
-Gives an overview of the number of sentences containing one if the most 20 common words.<br>
+Gives an overview of the number of sentences containing one if the most 20 common words:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/common_words.png" alt="Common words">
 
 
@@ -106,13 +106,10 @@ Gives an overview of the number of sentences containing one if the most 20 commo
  
 
 <h3><u>embeddings_trainer.ipynb</u></h3>
+The <a href="https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb">embeddings_trainer</a> notebook contains a collection of functions to train Word2Vec, Doc2Vec and FastText models. After some test the outcome was, that the Word2Vec embedding model works best for this case.
 
 <h2>About the crawler</h2> 
-The [ruakspider](https://github.com/stoffy/RUAK/tree/master/ruakspider) folder contain all stuff needed for crawling over certain websites to get text als training data for the classification model and text for the [training of the Word2Vec embedding model](https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb).
+The <a href="https://github.com/stoffy/RUAK/tree/master/ruakspider"> ruakspider</a> folder contain all stuff needed for crawling over certain websites to get text als training data for the classification model and text for the <a href="https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb">training of the Word2Vec embedding model</a>.
 
 <h2>More information</h2> 
-<h3>Word2Vec & FastText</h3>
-The [embeddings_trainer](https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb) notebook contains a collection of functions to train Word2Vec, Doc2Vec and FastText models. After some test the outcome was, that the Word2Vec embedding model works best for this case. 
-
-<h3>Further information</h3>
 The Jupyter notebooks are hooked up the Google Drive to load and store different types of data. If you are not using Google Drive you need the change the paths in the notebooks (1.2.1. Set variables and paths).
