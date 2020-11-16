@@ -1,16 +1,14 @@
-<img src="https://github.com/stoffy/RUAK/blob/master/The_School_of_Athens.jpg" alt="The School of Athens">
-
 <h1>RUAK - Are you a Hegel?</h1>
 
+<img src="https://github.com/stoffy/RUAK/blob/master/The_School_of_Athens.jpg" alt="The School of Athens">
 > ### The greatest challenge to any thinker is stating the problem in a way that will allow a solution.
-[Bertrand Russell](https://en.wikipedia.org/wiki/Bertrand_Russell)
-
+<a href="https://en.wikipedia.org/wiki/Bertrand_Russell">Bertrand Russell</a>
 
 <h2>About this project</h2>
 Philosophy is a fundamental human thought movement. Everyone is a philosopher. The only question is what kind of philosopher you are. This project tries to answer that question.<br><br>
 Using natural language processing (NLP), texts of different authors are used for categorization.
 With the help of these texts any sentence can be categorically determined.
-To understand how written language works and what the differents are between authors it helps to analyse the context of the sentences. Though visualization it is simpler to see structural varieties such as average sentence length, word class ratio and the use of [stop words](https://en.wikipedia.org/wiki/Stop_word).
+To understand how written language works and what the differents are between authors it helps to analyse the context of the sentences. Though visualization it is simpler to see structural varieties such as average sentence length, word class ratio and the use of <a href="https://en.wikipedia.org/wiki/Stop_word">stop words</a>.
 
 <h2>About the notebooks</h2>
 <h3><u>text_classifier.ipynb</u></h3>
@@ -90,7 +88,7 @@ Shows the differences between the authors for 4 metrics: <code>Mumber of sentenc
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/comparing_authors.png" alt="Comparing authors">
 
 <h5>Word classes by authos</h5>
-Presents the ratio of authors the word classes.<br>
+Presents the ratio of authors total used words to word classes.<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/word_classes_by_author.png" alt="Word classes by authors">
 
 <h5>Common words</h5>
