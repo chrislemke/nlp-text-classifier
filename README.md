@@ -100,7 +100,10 @@ Gives an overview of the number of sentences containing one if the most 20 commo
 This step prepared the data for the Tensorflow model. To process the text data it needs to be tokenized and encoded. Keras preprocessing methods are used for this. <code>texts_to_sequences</code> encodes the text to a sequence of integers.<br>Each sequence is padded to the longest available sequence using <code>pad_sequences</code>. Afterwards scikit-learn's <code>train_test_split</code> method is used to split the data into <code>X_train</code>, <code>X_valid</code>, <code>y_train</code>, and <code>y_valid</code>.
 
 <h4>Hyperparameter tuning</h4>
-Instead of manually searching for the best hyperparameter used by the model. In this project <a href="https://github.com/keras-team/keras-tuner">Keras Tuner</a> is used.<br>At the beginning of the step the Word2Vec model is loaded which can be created using the <a href="https://github.com/stoffy/RUAK-text-classifier/blob/master/notebooks/embeddings_trainer.ipynb"><code>embeddings_trainer.ipynb</code></a>.<br> The <code>hypermodel</code> function contains the definition of the model and the ranges for tuning the hyperparameters. The following parameters can be tuned:
+Instead of manually searching for the best hyperparameter used by the model. In this project <a href="https://github.com/keras-team/keras-tuner">Keras Tuner</a> is used.<br>
+There are two different ways to create the weights for the embedding layer. You may create your own Word2Vec model using the <a href="https://github.com/stoffy/RUAK-text-classifier/blob/master/notebooks/embeddings_trainer.ipynb"><code>embeddings_trainer.ipynb</code></a>. For the English language it is also possible to use the weights from the Word2Vec model provided by <a href="https://tfhub.dev/google/Wiki-words-500/2">Tensorflow Hub</a>.<br> 
+
+At the beginning of the step the Word2Vec model is loaded which can be created <br> The <code>hypermodel</code> function contains the definition of the model and the ranges for tuning the hyperparameters. The following parameters can be tuned:
 <ul>
 <li><code>hp_dense_count</code> - Number of dense layers at the end of the model</li>
 <li><code>hp_dense_units</code> - Number of units in dense layers</li>
