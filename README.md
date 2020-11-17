@@ -12,6 +12,11 @@ To understand how written language works and what the differences are between au
 
 <h2>About the notebooks</h2>
 <h3><u>text_classifier.ipynb</u></h3>
+This notebook is the heart of the project. You can open it in Google Colab to use a GPU and have a nice platform for editing.<br>
+<a href="https://colab.research.google.com/github/stoffy/RUAK-text-classifier/blob/master/notebooks/text_classifier.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a><br>
+
 <h4>Content</h4>
 <ol>
 	<li>Preparations</li>
@@ -27,12 +32,6 @@ To understand how written language works and what the differences are between au
 	<li>Evaluation</li>
 	<li>TensorBoard</li>
 </ol>
-
-You can open this Jupyter notebook in Google Colab to use a GPU and have a nice platform for editing.
-
-<a href="https://colab.research.google.com/github/stoffy/RUAK-text-classifier/blob/master/notebooks/text_classifier.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a><br><br>
 
 <h4>Preparation & Loading text data</h4>
 Those two part contains the imports, some additional downloads, the handling of the stop words, loading the text from the files provided, and the variables (paths, etc.) which must be set.
@@ -145,7 +144,4 @@ Open Tensorboad to get an detailed overview of the training process.
 The <a href="https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb">embeddings_trainer</a> notebook contains a collection of functions to train Word2Vec, Doc2Vec and FastText models. After some test the outcome was, that the Word2Vec embedding model works best for this case.
 
 <h2>About the crawler</h2> 
-The <a href="https://github.com/stoffy/RUAK/tree/master/ruakspider"> ruakspider</a> folder contain all stuff needed for crawling over certain websites to get text als training data for the classification model and text for the <a href="https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb">training of the Word2Vec embedding model</a>.
-
-<h2>More information</h2> 
-The Jupyter notebooks are hooked up the Google Drive to load and store different types of data. If you are not using Google Drive you need the change the paths in the notebooks (1.2.1. Set variables and paths).
+The <a href="https://github.com/stoffy/RUAK/tree/master/ruakspider"> ruakspider</a> folder contain all stuff needed for crawling over certain websites to get text as training data for the classification model and text for the <a href="https://github.com/stoffy/RUAK/blob/master/notebooks/embeddings_trainer.ipynb">training of the Word2Vec embedding model</a>.
