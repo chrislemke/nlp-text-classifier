@@ -15,9 +15,10 @@ gensim = "*"
 bs4 = "*"
 pandas = "*"
 tensorflow-hub = "*"
-tensorflow-datasets = "*"
 numpy = "*"
 spacy = "*"
+wordcloud = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.8"
