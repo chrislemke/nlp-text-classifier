@@ -12,7 +12,8 @@ To understand how written language works and what the differences are between au
 
 <h2>About the notebooks</h2>
 <h3><u>text_classifier.ipynb</u></h3>
-This notebook is the heart of the project. You can open it in Google Colab to use a GPU and have a nice platform for editing.<br>
+This notebook is the heart of the project. More details about this notebook and how to use it can be found in the introduction of it, right at the top of the notebook. 
+You can open it in Google Colab to use a GPU and have a nice platform for editing.<br>
 <a href="https://colab.research.google.com/github/stoffy/RUAK-text-classifier/blob/master/notebooks/text_classifier.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a><br>

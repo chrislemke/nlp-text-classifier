@@ -1,5 +1,3 @@
-/output
-/input
-/.idea
-*.pyc
+/ruakspider/ruakspider/spiders/__pycache__
+/ruakspider/ruakspider/__pycache__
 /notebooks/.ipynb_checkpoints
