@@ -83,6 +83,10 @@ In this part it is all about visualizing the data so it can be understood easier
 Shows the shares of data for each author:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/data_distribution.png" alt="Data distribution">
 
+And the distribution of word length by author:<br>
+<img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/word_length_distribution.png" alt="Word length distribution">
+
+
 <h5><b>Comparing authors</b></h5> 
 Shows the differences between the authors for 4 metrics: <code>Number of sentences</code>, <code>Median sentence length</code>, <code>Unique vocabulary count</code>, <code>Median stop word ratio</code>.<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/comparing_authors.png" alt="Comparing authors">
