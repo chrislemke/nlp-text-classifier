@@ -22,7 +22,7 @@ You can open it in Google Colab to use a GPU and have a nice platform for editin
 <ol>
 	<li>Preparations</li>
 	<li>Loading text data</li>
-	<li>Collect data and create word collection</li>
+	<li>Collect and clean data</li>
 	<li>Create and extend DataFrame</li>
 	<li>Store or load DataFrame</li>
 	<li>Visualization of data</li>
