@@ -5,9 +5,9 @@ import glob
 import sys
 
 ROOT_DIR = os.path.abspath(
-    __file__ + f"/../../input/source")
+    __file__ + f"/../loaded")
 OUTPUT = os.path.abspath(
-    __file__ + f"/../../input/processed/_merged_file.txt")
+    __file__ + f"/../output/_merged_file.txt")
 
 
 def merge():
