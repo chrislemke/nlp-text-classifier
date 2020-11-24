@@ -115,11 +115,7 @@ There are two different ways to create the weights for the embedding layer. You 
 
 At the beginning of the step the Word2Vec model is loaded which can be created <br> The <code>hypermodel</code> function contains the definition of the model and the ranges for tuning the hyperparameters. The following parameters can be tuned:
 <ul>
-<li><code>hp_dense_count</code> - Number of dense layers at the end of the model</li>
 <li><code>hp_dense_units</code> - Number of units in dense layers</li>
-<li><code>hp_dense_activation</code> - Activation function for dense layers</li>
-<li><code>hp_embedding_trainable</code> - Boolean if the pre-trained embedded layer can be trained during fitting</li>
-<li><code>hp_with_batch_normalization</code> - Boolean if batch normalization layers should be used.</li>
 <li><code>hp_lstm_units</code> - Number of units in LSTM layers</li>
 <li><code>hp_dropout</code> - Dropout rate</li>
 <li><code>hp_learning_rate</code> - Learning rate parameter for the optimizer</li>
