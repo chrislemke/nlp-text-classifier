@@ -107,7 +107,11 @@ To get understand the structures of the sentences you can visualize it:<br>
 
 
 <h4>Prepare and split</h4>
-This step prepared the data for the Tensorflow model. To process the text data it needs to be tokenized and encoded. Keras preprocessing methods are used for this. <code>texts_to_sequences</code> encodes the text to a sequence of integers.<br>Each sequence is padded to the longest available sequence using <code>pad_sequences</code>. Afterwards scikit-learn's <code>train_test_split</code> method is used to split the data into <code>X_train</code>, <code>X_valid</code>, <code>y_train</code>, and <code>y_valid</code>.
+This step prepared the data for the Tensorflow model. To process the text data it needs to be tokenized and encoded. Keras preprocessing methods are used for this. <code>texts_to_sequences</code> encodes the text to a sequence of integers.<br>Each sequence is padded to the longest available sequence using <code>pad_sequences</code>.<br>
+The collected metadata (e.g. number of stop words, etc.) gets normalized, not used columns get removed. And afterwards two data frames are concatenated. 
+<br>Afterwards scikit-learn's <code>train_test_split</code> method is used to split the data.<br>
+At the end two sets of train, validation and label arrays are created for training the model. 
+
 
 <h4>Hyperparameter tuning</h4>
 Instead of manually searching for the best hyperparameter used by the model. In this project <a href="https://github.com/keras-team/keras-tuner">Keras Tuner</a> is used.<br>
@@ -127,7 +131,10 @@ Keras Hyperband uses the model to create a tuner - parameters:
 <li><code>max_epochs</code> - The maximal number of epochs. This number should be slightly bigger than the epochs for the fitting process</li>
 <li><code>hyperband_iterations</code> - The number of times to iterate over the full Hyperband algorithm</li>
 </ul>
-The created tuner is then used to search for the best parameters which are returned by <code>get_best_hyperparameters</code>. A collection of the best models are returned by <code>get_best_models</code>.
+The created tuner is then used to search for the best parameters which are returned by <code>get_best_hyperparameters</code>. A collection of the best models are returned by <code>get_best_models</code>.<br><br>
+<img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/model.png" alt="Model structure"><br>
+The Model contains two inputs. One is used for passing the encoded and padded sentences to the embedding layer. The other input handles the metadata. Later they get concatenated before the model ends with a Dense layer having the number of units equal to the classes available (authors). 
+
 
 <h4>Model preparation and training</h4>
 Using the fit method of the selected model - here it gets trained using the train and validation data. Three different callbacks are used: 
