@@ -23,7 +23,7 @@ You can open it in Google Colab to use a GPU and have a nice platform for editin
 	<li>Preparations</li>
 	<li>Loading text data</li>
 	<li>Collect and clean data</li>
-	<li>Create and extend DataFrame</li>
+	<li>Creating DataFrame and feature engineering</li>
 	<li>Store or load DataFrame</li>
 	<li>Visualization of data</li>
 	<li>Prepare and split</li>
@@ -81,28 +81,33 @@ In this part it is all about visualizing the data so it can be understood easier
 
 <h5><b>Data distribution</b></h5> 
 Shows the shares of data for each author:<br>
+Seems like Kant's share is too big 🤭.<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/data_distribution.png" alt="Data distribution">
 
 and the distribution of word length by author:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/word_length_distribution.png" alt="Word length distribution">
 
 Distribution of sentence length by author:<br>
+Why does Hume has so many long sentences 🤔?<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/sentence_length_distribution.png" alt="Sentence length distribution">
 
 <h5><b>Comparing authors</b></h5> 
-Shows the differences between the authors for 4 metrics: <code>Number of sentences</code>, <code>Median sentence length</code>, <code>Unique vocabulary count</code>, <code>Median stop word ratio</code>.<br><br>
+Shows the differences between the authors for 4 metrics: <code>Number of sentences</code>, <code>Median sentence length</code>, <code>Unique vocabulary count</code>, <code>Median stop word ratio</code>.<br>Hume not only has very long sentences, but also a high number of sentences 😯.<br><br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/comparing_authors.png" alt="Comparing authors">
 
 <h5><b>Word classes by authors</b></h5>
 Presents the ratio of authors total used words to word classes:<br>
+Plato's sentences seem different to the others. Probably because most of his texts are debates 🤓.
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/word_classes_by_author.png" alt="Word classes by authors">
 
 <h5><b>Common words</b></h5>
 Gives an overview of the number of sentences containing one if the most 20 common words:<br>
+I would have suspected 'reason' in one of the first places 🧐.<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/common_words.png" alt="Common words">
 
 <h5><b>Sentence representation</b></h5>
 To get understand the structures of the sentences you can visualize it:<br>
+Classical <a href="https://en.wikisource.org/wiki/A_Dancing_Song_to_the_Mistral_Wind">Nietzsche</a> 😎<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/sentence.png" alt="Sentence representation">
 
 
@@ -110,7 +115,7 @@ To get understand the structures of the sentences you can visualize it:<br>
 This step prepared the data for the Tensorflow model. To process the text data it needs to be tokenized and encoded. Keras preprocessing methods are used for this. <code>texts_to_sequences</code> encodes the text to a sequence of integers.<br>Each sequence is padded to the longest available sequence using <code>pad_sequences</code>.<br>
 The collected metadata (e.g. number of stop words, etc.) gets normalized, not used columns get removed. And afterwards two data frames are concatenated. 
 <br>Afterwards scikit-learn's <code>train_test_split</code> method is used to split the data.<br>
-At the end two sets of train, validation and label arrays are created for training the model. 
+At the end two sets of train, validation and label arrays are created for hyperparameter seach and training the model. 
 
 
 <h4>Hyperparameter tuning</h4>
@@ -132,15 +137,16 @@ Keras Hyperband uses the model to create a tuner - parameters:
 <li><code>hyperband_iterations</code> - The number of times to iterate over the full Hyperband algorithm</li>
 </ul>
 The created tuner is then used to search for the best parameters which are returned by <code>get_best_hyperparameters</code>. A collection of the best models are returned by <code>get_best_models</code>.<br><br>
-<img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/model.png" alt="Model structure"><br>
-The Model contains two inputs. One is used for passing the encoded and padded sentences to the embedding layer. The other input handles the metadata. Later they get concatenated before the model ends with a Dense layer having the number of units equal to the classes available (authors). 
+This image shows a possible model found by the Keras tuner search:<br>
+<img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/model.png" alt="Model structure"<br><br>
+The Model contains two inputs. One is used for passing the encoded and padded sentences to the embedding layer. The other input handles the generated metadata. Later they get concatenated before the model ends with a Dense layer having the number of units equal to the classes available (authors). 
 
 
 <h4>Model preparation and training</h4>
 Using the fit method of the selected model - here it gets trained using the train and validation data. Three different callbacks are used: 
 <ul>
 <li><code>Tensorboard</code> - For collecting the data for presentation in TensorBoard</li>
-<li><code>ModelCheckpoint</code> - Stores the weights after each epoch</li>
+<li><code>ReduceLROnPlateau</code> - Reduce learning rate when a metric has stopped improving</li>
 <li><code>EarlyStopping</code> - Stops the training if no progress in learning</li>
 </ul>
 
