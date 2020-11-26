@@ -1,4 +1,4 @@
-<h1>RUAK - Are you a Hegel?</h1>
+<h1>RUAK - Are you a Hegel? 🧐</h1>
 
 <img src="https://github.com/stoffy/RUAK/blob/master/images/The_School_of_Athens.jpg" alt="The School of Athens"><br>
 <i>The greatest challenge to any thinker is stating the problem in a way that will allow a solution.</i><br>
