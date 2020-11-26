@@ -88,11 +88,11 @@ and the distribution of word length by author:<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/word_length_distribution.png" alt="Word length distribution">
 
 Distribution of sentence length by author:<br>
-Why does Hume has so many long sentences 🤔?<br>
+Why does Hume has so many sentences 🤔?<br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/sentence_length_distribution.png" alt="Sentence length distribution">
 
 <h5><b>Comparing authors</b></h5> 
-Shows the differences between the authors for 4 metrics: <code>Number of sentences</code>, <code>Median sentence length</code>, <code>Unique vocabulary count</code>, <code>Median stop word ratio</code>.<br>Hume not only has very long sentences, but also a high number of sentences 😯.<br><br>
+Shows the differences between the authors for 4 metrics: <code>Number of sentences</code>, <code>Median sentence length</code>, <code>Unique vocabulary count</code>, <code>Median stop word ratio</code>.<br>Hume not only a lot sentences, but also very long onces 😯.<br><br>
 <img src="https://github.com/stoffy/RUAK-text-classifier/blob/master/images/comparing_authors.png" alt="Comparing authors">
 
 <h5><b>Word classes by authors</b></h5>
