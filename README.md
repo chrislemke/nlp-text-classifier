@@ -23,10 +23,10 @@ You can open it in Google Colab to use a GPU and have a nice platform for editin
 	<li>Preparations</li>
 	<li>Loading text data</li>
 	<li>Collect and clean data</li>
-	<li>Creating DataFrame and feature engineering</li>
+	<li>Creating DataFrame and extract new data</li>
 	<li>Store or load DataFrame</li>
 	<li>Visualization of data</li>
-	<li>Prepare and split</li>
+	<li>Preparation, splitting and normalization</li>
 	<li>Hyperparameter tuning</li>
 	<li>Model preparation and training</li>
 	<li>Save or load model</li>
